@@ -7,6 +7,7 @@ import { faWhatsapp, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-i
 
 interface ContactLink {
   label: string;
+  sublabel?: string;
   href: string;
   icon: React.ReactNode;
 }
@@ -14,21 +15,25 @@ interface ContactLink {
 const contactLinks: ContactLink[] = [
   {
     label: "Email",
+    sublabel: "gustavohv.dev@gmail.com",
     href: "mailto:gustavohv.dev@gmail.com",
     icon: <Mail size={20} />,
   },
   {
     label: "GitHub",
+    sublabel: "/TavinHVM",
     href: "https://github.com/TavinHVM",
     icon: <FontAwesomeIcon icon={faGithub} size="lg" />,
   },
   {
     label: "LinkedIn",
+    sublabel: "/gustavohvdev",
     href: "https://www.linkedin.com/in/gustavohvdev/",
     icon: <FontAwesomeIcon icon={faLinkedin} size="lg" />,
   },
   {
     label: "WhatsApp",
+    sublabel: "+55 62 99530-1725",
     href: "https://wa.me/5562995301725",
     icon: <FontAwesomeIcon icon={faWhatsapp} size="lg" />,
   }
@@ -57,10 +62,17 @@ export function Contact() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-3 border border-zinc-700 text-zinc-400 hover:text-white hover:border-indigo-400 rounded-lg transition-all duration-300 hover:scale-105"
+              className="flex items-center gap-3 px-6 py-3 w-72 h-20 border border-zinc-700 text-zinc-300 hover:text-white hover:border-indigo-400 rounded-lg transition-all duration-300 hover:scale-105 flex-nowrap"
             >
-              {link.icon}
-              <span className="font-medium">{link.label}</span>
+              <div className="flex-shrink-0">
+                {link.icon}
+              </div>
+              <div className="flex flex-col items-start flex-1 min-w-0">
+                <span className="font-medium whitespace-nowrap text-sm">{link.label}</span>
+                {link.sublabel && (
+                  <span className="text-xs text-zinc-400 whitespace-nowrap truncate">{link.sublabel}</span>
+                )}
+              </div>
             </a>
           ))}
         </div>
