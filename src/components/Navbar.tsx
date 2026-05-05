@@ -1,4 +1,4 @@
-import Link from "next/link";
+"use client";
 
 interface NavLink {
   label: string;
@@ -14,15 +14,23 @@ const navLinks: NavLink[] = [
 ];
 
 export function Navbar() {
+  const handleScrollToTop = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <nav className="fixed top-0 z-50 w-full backdrop-blur-md bg-black/50 border-b border-zinc-800">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link
-          href="#hero"
-          className="text-2xl font-bold text-indigo-500"
+        <button
+          onClick={handleScrollToTop}
+          className="text-2xl font-bold text-indigo-500 hover:text-indigo-400 transition-colors cursor-pointer"
         >
           Gustavo.
-        </Link>
+        </button>
 
         <div className="flex gap-8">
           {navLinks.map((link) => (
