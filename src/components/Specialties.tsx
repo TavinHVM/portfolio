@@ -32,6 +32,14 @@ const specialties: Specialty[] = [
   },
 ];
 
+const highlightMetrics = (text: string) => {
+  const highlighted = text.replace(
+    /(\$[\d,.]+[MKB+]*|\d+[\d,.]*[MKB%+]+\+?|\d+\+?\s?(hours?|platforms?|subscribers?|tools?))/gi,
+    '<strong class="text-white font-semibold">$1</strong>'
+  );
+  return { __html: highlighted };
+};
+
 export function Specialties() {
   const ref = useFadeInOnScroll({ threshold: 0.2 });
 
@@ -54,7 +62,7 @@ export function Specialties() {
               {specialty.title}
             </h3>
             <p className="text-zinc-400 text-sm leading-relaxed">
-              {specialty.description}
+              <span dangerouslySetInnerHTML={highlightMetrics(specialty.description)} />
             </p>
           </div>
         ))}
