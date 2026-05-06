@@ -151,8 +151,6 @@ The app is now ready to be deployed to hosting platforms like Vercel, Netlify, o
 
 ## Screenshots
 
-Add screenshots of your portfolio here to showcase the design:
-
 ### Hero Section
 ![Hero Section](./screenshots/hero.jpg)
 
