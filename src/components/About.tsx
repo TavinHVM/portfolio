@@ -1,6 +1,7 @@
 "use client";
 
 import { useFadeInOnScroll } from "@/hooks/useFadeInOnScroll";
+import Image from 'next/image';
 
 export function About() {
   const ref = useFadeInOnScroll({ threshold: 0.2 });
@@ -20,7 +21,7 @@ export function About() {
           </p>
 
           <p className="text-zinc-300 leading-relaxed text-lg">
-            I work primarily with conversational AI, RAG architectures, and end-to-end workflow automation using tools like n8n and Python. From integrating language models into enterprise applications to running infrastructure that handles over 1.3 million workflow executions monthly — I care about building things that are reliable, scalable, and actually useful.
+            I work primarily with conversational AI, RAG architectures, and end-to-end workflow automation using tools like n8n and Python. From integrating language models into enterprise applications to running infrastructure that handles over <span className="font-bold text-white">1.3 million</span> workflow executions monthly — I care about building things that are reliable, scalable, and actually useful.
           </p>
 
           <div className="pt-4">
@@ -34,7 +35,7 @@ export function About() {
         <div className="flex items-center justify-center">
           <div className="w-full aspect-square bg-gradient-to-br from-indigo-500/20 to-emerald-500/20 rounded-2xl border border-zinc-700 flex items-center justify-center">
             <div className="text-center">
-              <img src="/profile-photo.png" alt="Profile" width={640} height={640} className="w-full h-full rounded-2xl mx-auto" />
+              <Image src="/profile-photo.png" alt="Profile" width={640} height={640} className="w-full h-full rounded-2xl mx-auto" />
             </div>
           </div>
         </div>

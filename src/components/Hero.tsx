@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 
 const roles = ["AI Automation Developer", "n8n Specialist", "Software Engineer"];
 
@@ -30,6 +29,14 @@ export function Hero() {
     return () => clearTimeout(timer);
   }, [displayedRole, isDeleting, currentRole]);
 
+  const handleScroll = (e: React.MouseEvent<HTMLButtonElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center px-6 pt-20 pb-20 relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -56,18 +63,18 @@ export function Hero() {
         </p>
 
         <div className="flex gap-4 justify-center flex-wrap">
-          <Link
-            href="#specialties"
-            className="px-8 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg font-semibold transition-all transform hover:scale-105 duration-300"
+          <button
+            onClick={(e) => handleScroll(e, "specialties")}
+            className="px-8 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg font-semibold transition-all transform hover:scale-105 duration-300 cursor-pointer"
           >
             View My Work
-          </Link>
-          <Link
-            href="#contact"
-            className="px-8 py-3 border border-indigo-400 text-indigo-400 hover:bg-indigo-400/10 rounded-lg font-semibold transition-all"
+          </button>
+          <button
+            onClick={(e) => handleScroll(e, "contact")}
+            className="px-8 py-3 border border-indigo-400 text-indigo-400 hover:bg-indigo-400/10 rounded-lg font-semibold transition-all cursor-pointer hover:scale-105 duration-300"
           >
             Contact Me
-          </Link>
+          </button>
         </div>
       </div>
     </section>

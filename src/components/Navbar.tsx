@@ -6,11 +6,10 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Tech Stack", href: "#tech-stack" },
-  // { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "about" },
+  { label: "Experience", href: "experience" },
+  { label: "Tech Stack", href: "tech-stack" },
+  { label: "Contact", href: "contact" },
 ];
 
 export function Navbar() {
@@ -20,6 +19,14 @@ export function Navbar() {
       top: 0,
       behavior: "smooth",
     });
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -36,7 +43,8 @@ export function Navbar() {
           {navLinks.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={`#${link.href}`}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="text-zinc-400 hover:text-white transition-colors text-sm font-medium"
             >
               {link.label}
