@@ -16,7 +16,7 @@ const experiences: Experience[] = [
     period: "Oct 2025 — Present",
     bullets: [
       "Architected and scaled a high-performance n8n infrastructure processing 1.3M+ peak monthly workflow executions, maintaining sub-second latency across HubSpot, Calendly, and Zoom.",
-      "Deployed custom AI agents with RAG pipelines, reducing manual ticket resolution time by 30–40% and acting as a force multiplier for the support team.",
+      "Deployed custom AI agents with RAG pipelines, reducing manual ticket resolution time by 30%–40% and acting as a force multiplier for the support team.",
       "Automated revenue recovery workflows that cut involuntary churn by 15%, maintaining 95% data integrity across 5,000+ active monthly subscribers.",
       "Built end-to-end integrations using Python, n8n, and Zapier across 8+ platforms; delivered scalable frontend enhancements following Agile sprint cycles.",
       "Led operational tooling development with a reliability-first approach, enforcing security standards across the full automation stack.",
